@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="shopping-cart.css">
+    <title>My Shopping Cart</title>
+</head>
+
+<body class="container">
+    <header>
+        <span>
+            <h4 class="apply-inline-flex">YOUR SHOPPING BAG</h4>
+        </span>
+        <span class="item-count">ITEMS</span>
+        <hr class="hr-layout">
+    </header>
+    <div class="row hide-in-mobile">
+        <span class="apply-padding-right">SIZE</span>
+        <span class="apply-padding-right">QTY</span>
+        <span class="apply-padding-right">PRICE</span>
+    </div>
+    <div class="separator hide-in-mobile"></div>
+    <div class="container-fluid nav-border">
+        <div class="container space-top hide template" id="template">
+            <div class="col-xs-6 col-sm-4 col-lg-4">
+                <img src="" alt="" id="item-image" class="item-image">
+            </div>
+            <div class="col-xs-6 col-sm-8">
+                <form action="" class="form-group">
+                    <h3></h3>
+                    <div id="item-style">
+                        <label for="">style #:</label>
+                        <span></span>
+                    </div>
+                    <div id="item-color">
+                        <label for="">color :</label>
+                        <span></span>
+                    </div>
+                    <div id="item-size" class="hide-in-desktop">
+                        <label for="">Size :</label>
+                        <span></span>
+                    </div>
+                    <div id="item-quantity" class="hide-in-desktop">
+                        <label for="" value="qty">Qty :</label>
+                        <label class="form-control form-layout qty"></label>
+                    </div>
+                    <div id="item-rate" class="rate hide-in-desktop">
+                        <label for="">$</label>
+                        <span>100</span>
+                    </div>
+
+                    <!-- For Desktop View -->
+
+                    <div id="item-size-dk" class="hide-in-mobile apply-padding-right">
+                        <label for=""></label>
+                        <span></span>
+                    </div>
+                    <div id="item-quantity-dk" class="hide-in-mobile apply-padding-right">
+                        <label for="" value="qty"></label>
+                        <label class="form-control form-layout qty"></label>
+                    </div>
+                    <div id="item-rate-dk" class="rate hide-in-mobile apply-padding-right">
+                        <label for="">$</label>
+                        <span>100</span>
+                    </div>
+                </form>
+            </div>
+            <div class="col-xs-12 col-lg-4 button-container-layout">
+                <button type="button" class="edit-button control-btn-layout">EDIT</button>
+                <button type="button" class="delete-btn control-btn-layout">REMOVE</button>
+                <button type="button" class="save-btn control-btn-layout">SAVE FOR LATER</button>
+            </div>
+        </div>
+    </div>
+    <div class="text-center apply-padding">
+        <h4>ENTER PROMOTION</h4>
+        <h4>OR</h4>
+        <h4>GIFT CARD</h4>
+        <form action="" class="form-group voucher-frm">
+            <input type="text" class="form-control control-label width-auto col-xs-4">
+            <input type="submit" value="Apply" class="form-control width-auto">
+        </form>
+    </div>
+    <div class="container" id="discount-container">
+        <form action="" class="form-group ">
+            <label for="" class="form-control remove-border float-left">SUBTOTAL
+                <p class="amt apply-float-right"></p>
+            </label>
+            <label for="" class="form-control remove-border">ESTIMATED SHIPPING
+                <p class="apply-float-right">FREE</p>
+            </label>
+            <div>
+                <label for="" class="form-control remove-border">PROMOTION CODE
+                    <p class="apply-float-right">NONE</p>
+                </label>
+                <label for="" class="form-control remove-border">ESTIMATED TOTAL
+                    <p id="disc-total" class="apply-float-right" style="padding-top: 6px;"></p>
+                    <p class="apply-opacity ">Tax will be applied during checkout</p>
+                </label>
+                <button type="submit" class="form-control remove-border checkout-btn space-top ">CHECKOUT</button>
+        </form>
+        </div>
+
+        <footer class="container">
+            <a href="#" class="">CONTINUE SHOPPING</a>
+            <p>
+                Secure checkout. Shopping is always safe & secure.
+            </p>
+            <img src="https://firebasestorage.googleapis.com/v0/b/shopping-7f922.appspot.com/o/lock.jpg?alt=media&token=bd39c7b0-926d-4f22-9d94-e8457b05b054"
+                alt="Lock">
+            <br>
+            <br>
+            <p>
+                <a href="">SIGN IN</a>
+                to save your cart and have access to your items on mobile,tablet, and desktop.
+            </p>
+        </footer>
+
+        <div id="my-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="apply-inline-flex">
+                    <div class=" modal-detail">
+                        <form action="" class="form-group" id="modal-form">
+                            <p id="modal-product">P</p>
+                            <div class="apply-inline-flex">
+                                <h2 id="modal-rate"></h2>
+                            </div>
+                            <div class="" id="modal-color"></div>
+                            <div class="apply-inline-flex" id="modal-size">
+                                <select name="size" id="item-size-modal" value="size" class="form-control">
+                                    <option value="size" selected disabled hidden>Size</option>
+                                    <option value="S">Small</option>
+                                    <option value="M">Medium</option>
+                                    <option value="L">Large</option>
+                                    <option value="XL">Extra Large</option>
+                                </select>
+                                <select name="qty" id="item-qty-modal" class="form-control">
+                                    <option value="qty" selected disabled hidden>Qty</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="form-control remove-border checkout-btn space-top" id="modal-edit">EDIT</button>
+                        </form>
+                    </div>
+                    <div class="float-right">
+                        <img src="" alt="" id="modal-img" class="modal-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyAMHP1THoLRy91ZtlSMCcczQgVPvHsQAr8",
+                authDomain: "shopping-7f922.firebaseapp.com",
+                databaseURL: "https://shopping-7f922.firebaseio.com",
+                projectId: "shopping-7f922",
+                storageBucket: "shopping-7f922.appspot.com",
+                messagingSenderId: "1013864870388"
+            };
+            firebase.initializeApp(config);
+        </script>
+        <script src="shopping-cart.js"></script>
+
+</body>
+
+</html>
